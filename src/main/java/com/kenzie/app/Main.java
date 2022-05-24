@@ -32,6 +32,16 @@ public class Main {
         String longestWord = "";
 
         //Write your code below
+        //creating variable to hold a string sentence
+        //converted sentence1 to an array of words
+        String [] sentenceArray = sentence.split(" ");
+        //iterate through sentence1
+        for(int i = 0; i < sentenceArray.length; i++){
+            if(sentenceArray[i].length() > longestWord.length()){
+                //store the longest word in a variable
+                longestWord = sentenceArray[i];
+            }
+        }
 
         return longestWord;
     }
@@ -56,8 +66,23 @@ public class Main {
     //HINT: if the multiple words have the same length return the first shortest word
     public static String findShortestWord(String sentence){
         //Fill out a method for finding the shortest word
+        String shortestWord = "";
 
-        return "";
+        //Write your code below
+        //creating variable to hold a string sentence
+        //converted sentence1 to an array of words
+        String [] sentenceArray = sentence.split(" ");
+        String first = sentenceArray[0];
+
+        //iterate through sentence1
+        for(int i = 0; i < sentenceArray.length; i++){
+            if(sentenceArray[i].length() < first.length()){
+                //store the longest word in a variable
+                shortestWord = sentenceArray[i];
+            }
+        }
+
+        return shortestWord;
     }
 
     public static void exerciseTwo(){
@@ -67,6 +92,12 @@ public class Main {
         //Print out the shortest word in a message:  "The shortest word is: {shortest word}"
         //Do not include the braces {} in the output
         //Write your code below
+        String shortestWord = findShortestWord(sentence);
+        System.out.println("The shortest word is: " + shortestWord);
+
+
+
+
 
 
 
@@ -79,6 +110,20 @@ public class Main {
     //HINT:  You will need to return an int!
 
     //Write your method here
+    public static int findLongestWordLength(String sentence){
+        int longestWordLength = 0;
+        String [] sentenceArray = sentence.split(" ");
+        //iterate through sentence1
+        for(int i = 0; i < sentenceArray.length; i++){
+            if(sentenceArray[i].length() > longestWordLength) {
+                //store the longest word in a variable
+                longestWordLength = sentenceArray[i].length();
+            }
+        }
+
+        return longestWordLength;
+    }
+
 
 
 
@@ -89,6 +134,7 @@ public class Main {
         // Print the longest word to the console like this "The length of the longest word is: {length}"
         // Do not include curly braces in your output
         //Write your code below
+        System.out.println("The length of the longest word is: " + findLongestWordLength(sentence));
 
 
     }
@@ -101,9 +147,30 @@ public class Main {
     //how many times the letter appears in the string. Count both upper and lower case versions of the letter
     //Hint: Even though the letter is a single character long, you can still use it as a String parameteter
     //Write your method below:
+    //method
+    public static int countLetter(char letter, String sentence){
+        int letterCount = 0;
+        char fromSentence = letter;
+        sentence = sentence.toLowerCase();
+        String [] sentenceArray = sentence.split(" ");
+        String s = "";
+        for (String n:sentenceArray)
+            s+=n;
+        char [] charactersInSentence = s.toCharArray();
+
+        //iterate through sentence
+        //count method for vowels a e i o u including capital and lower case
+        for(int i = 0; i < charactersInSentence.length; i++) {
+            if (fromSentence == charactersInSentence[i]){
+                letterCount++;
+            }
+        }
+        return letterCount;
 
 
 
+
+    }
 
     //Use your count letter in the exerciseFour method.
 
@@ -121,6 +188,25 @@ public class Main {
         // ... {other vowels}
         // ...
         // Total number of vowels: 28
+        char vowelA = 'a';
+        char vowelE = 'e';
+        char vowelI='i';
+        char vowelO='o';
+        char vowelU='u';
+        int numberOfA = countLetter(vowelA, sentence);
+        int numberOfE = countLetter(vowelE, sentence);
+        int numberOfI = countLetter(vowelI, sentence);
+        int numberOfO = countLetter(vowelO, sentence);
+        int numberOfU = countLetter(vowelU, sentence);
+        int totalVowels = numberOfA + numberOfE + numberOfI + numberOfO + numberOfU;
+        System.out.println("Number of a's: " + numberOfA);
+        System.out.println("Number of e's: " + numberOfE);
+        System.out.println("Number of i's: " + numberOfI);
+        System.out.println("Number of o's: " + numberOfO);
+        System.out.println("Number of u's: " + numberOfU);
+        System.out.println("Total number of vowels: " + totalVowels);
+
+
 
 
 
